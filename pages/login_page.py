@@ -1,7 +1,4 @@
-from locators import login_page_locators
-from locators.main_page_locators import MainPageLocators
 from locators.login_page_locators import LoginPageLocators
-from locators.forgot_password_page_locators import ForgotPasswordPageLocators
 from pages.base_page import BasePage
 
 

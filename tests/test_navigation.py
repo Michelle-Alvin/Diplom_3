@@ -1,7 +1,10 @@
+import allure
+
 from pages.main_page import MainPage
 
 
 class TestNavigation:
+    @allure.title("Навигация: переходы в Ленту заказов и Конструктор")
     def test_navigation(self, driver):
         main = MainPage(driver)
         main.open("https://stellarburgers.nomoreparties.site/")

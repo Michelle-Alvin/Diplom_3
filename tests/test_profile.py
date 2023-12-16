@@ -1,8 +1,11 @@
+import allure
+
 from pages.login_page import LoginPage
 from pages.main_page import MainPage
 
 
 class TestProfile:
+    @allure.title("Вкладки в личном кабинете")
     def test_profile_tabs(self, logged_user):
         main = MainPage(logged_user)
         main.go_to_my_profile()

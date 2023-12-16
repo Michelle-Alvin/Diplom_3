@@ -1,6 +1,3 @@
-import allure
-from selenium.common import NoSuchElementException
-
 from locators.forgot_password_page_locators import ForgotPasswordPageLocators
 from pages.base_page import BasePage
 

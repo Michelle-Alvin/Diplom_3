@@ -21,7 +21,8 @@ class MainPageLocators:
     CONSTRUCTOR_TITLE = (By.XPATH, "//h1[contains(text(), 'Соберите бургер')]")
 
     # Крестик в детальной информации ингредиента
-    CROSS_DETAIL_FORM = (By.XPATH, "//section[contains(@class,'Modal_modal_opened')]//button[contains(@class, 'Modal_modal__close')]")
+    CROSS_DETAIL_FORM = (
+        By.XPATH, "//section[contains(@class,'Modal_modal_opened')]//button[contains(@class, 'Modal_modal__close')]")
 
     # Флюоресцентная булка в конструкторе
     FLUORESCENT_BUN = (By.XPATH, "//img[@alt='Флюоресцентная булка R2-D3']")
@@ -29,3 +30,32 @@ class MainPageLocators:
     # Корзина конструктора
     BURGER_BASKET = (By.XPATH, "//ul[contains(@class, 'BurgerConstructor_basket__list')]")
 
+    # Счетчик заказанных булочек
+    COUNT_FLUORESCENT_BUN = (By.XPATH, "//img[@alt='Флюоресцентная булка R2-D3']/ancestor::"
+                                       "div//p[contains(@class, 'counter_counter__num')]")
+
+    # Кнопка Оформить заказ
+    MAKE_ORDER = (By.XPATH, "//button[text() = 'Оформить заказ']")
+
+    # Открытое окно заказа
+    ORDER_NUMBER = (By.XPATH, "//h2[contains(@class, 'Modal_modal__title')]")
+
+    # Открытое окно заказа
+    ORDER_CONFIRMATION = (By.XPATH, "//p[text() = 'идентификатор заказа'")
+
+    # Первый элемент в ленте заказов
+    FIRST_ORDER_IN_FEED = (By.XPATH, "(//li[contains(@class, 'OrderHistory_listItem')])[1]")
+
+    # Детальная форма заказа в ленте заказов
+    DETAIL_FORM_ORDER = (By.XPATH, "//div[contains(@class, 'Modal_orderBox')]")
+
+    # Счетчик заказов за все время
+    COUNT_FOR_ALL_TIME = (By.XPATH, "(//p[contains(@class, 'OrderFeed_number')])[1]")
+
+    # Счетчик заказов за день
+    COUNT_IN_A_DAY = (By.XPATH, "(//p[contains(@class, 'OrderFeed_number')])[2]")
+
+    # Номер заказа в списке заказов "В работе"
+    @staticmethod
+    def order_in_progress(number):
+        return By.XPATH, f"//ul[contains(@class, 'OrderFeed_orderListReady')]//li[contains(text(), '{number}')]"
