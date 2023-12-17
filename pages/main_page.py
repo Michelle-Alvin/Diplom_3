@@ -60,5 +60,5 @@ class MainPage(BasePage):
     def count_orders_in_a_day(self):
         return self.get_text(MainPageLocators.COUNT_IN_A_DAY)
 
-    def search_order_in_progress_list(self, number):
-        return self.is_active(MainPageLocators.order_in_progress(number))
+    def search_order_in_progress_list(self):
+        return self.is_active(MainPageLocators.ORDER_IN_PROGRESS)

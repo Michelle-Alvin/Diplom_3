@@ -70,8 +70,8 @@ class TestOrdersFeed:
     def test_order_in_progress(self, logged_user):
         main = MainPage(logged_user)
         main.move_bun_in_basket()
-        number = main.accept_order()
+        main.accept_order()
         main.close_detail_form()
         main.go_to_orders_list()
 
-        assert main.search_order_in_progress_list(number) is True
+        assert main.search_order_in_progress_list() is True

@@ -6,7 +6,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 from locators.login_page_locators import LoginPageLocators
 from locators.main_page_locators import MainPageLocators
 
-"""
+
 @pytest.fixture(scope='function', params=["chrome", "firefox"])
 def driver(request):
     if request.param == "chrome":
@@ -15,15 +15,6 @@ def driver(request):
         driver = webdriver.Firefox()
     else:
         raise ValueError("Unsupported browser")
-
-    yield driver
-    driver.quit()
-"""
-
-
-@pytest.fixture(scope='function')
-def driver():
-    driver = webdriver.Chrome()
 
     yield driver
     driver.quit()
@@ -41,5 +32,4 @@ def logged_user(driver):
     driver.find_element(*LoginPageLocators.PASSWORD_INPUT).send_keys("123456")
     driver.find_element(*LoginPageLocators.LOGIN_BUTTON).click()
 
-    # WebDriverWait(driver, 5).until(EC.visibility_of_element_located(locators.CHECKOUT))
     return driver

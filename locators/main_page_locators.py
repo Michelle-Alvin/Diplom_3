@@ -56,6 +56,4 @@ class MainPageLocators:
     COUNT_IN_A_DAY = (By.XPATH, "(//p[contains(@class, 'OrderFeed_number')])[2]")
 
     # Номер заказа в списке заказов "В работе"
-    @staticmethod
-    def order_in_progress(number):
-        return By.XPATH, f"//ul[contains(@class, 'OrderFeed_orderListReady')]//li[contains(text(), '{number}')]"
+    ORDER_IN_PROGRESS = (By.XPATH, f"//li[contains(text(), '0')]")
