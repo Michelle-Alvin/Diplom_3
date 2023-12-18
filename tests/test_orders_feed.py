@@ -46,7 +46,7 @@ class TestOrdersFeed:
         # Возвращаемся в ленту и проверяем новое значение
         main.go_to_orders_list()
 
-        assert main.count_orders_for_all_time() > count, "счетчик заказов за все время не изменился"
+        assert main.count_orders_for_all_time() > count, "Счетчик заказов за все время не изменился"
 
     @allure.title("Проверка корректности счетчика заказов за день")
     def test_order_count_in_a_day(self, logged_user):
@@ -64,7 +64,7 @@ class TestOrdersFeed:
         # Возвращаемся в ленту и проверяем новое значение
         main.go_to_orders_list()
 
-        assert main.count_orders_in_a_day() > count, "счетчик заказов за день не изменился"
+        assert main.count_orders_in_a_day() > count, "Счетчик заказов за день не изменился"
 
     @allure.title('Отображение нового заказа в блоке "В работе"')
     def test_order_in_progress(self, logged_user):
@@ -74,4 +74,4 @@ class TestOrdersFeed:
         main.close_detail_form()
         main.go_to_orders_list()
 
-        assert main.search_order_in_progress_list() is True
+        assert main.search_order_in_progress_list() is True, 'Заказ не найден "В работе"'

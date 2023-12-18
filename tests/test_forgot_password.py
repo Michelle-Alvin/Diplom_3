@@ -6,7 +6,7 @@ from pages.main_page import MainPage
 
 
 class TestForgotPassword:
-    @allure.title("Ворк-флоу восстановления пароля")
+    @allure.title("Воркфлоу восстановления пароля")
     def test_input_status_active(self, driver):
         main = MainPage(driver)
         main.open('https://stellarburgers.nomoreparties.site/')

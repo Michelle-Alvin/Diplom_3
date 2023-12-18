@@ -1,10 +1,8 @@
 import pytest
 from selenium import webdriver
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.support.wait import WebDriverWait
 
-from locators.login_page_locators import LoginPageLocators
-from locators.main_page_locators import MainPageLocators
+from pages.login_page import LoginPage
+from pages.main_page import MainPage
 
 
 @pytest.fixture(scope='function', params=["chrome", "firefox"])
@@ -22,14 +20,10 @@ def driver(request):
 
 @pytest.fixture(scope='function')
 def logged_user(driver):
-    driver.get("https://stellarburgers.nomoreparties.site/")
-
-    driver.find_element(*MainPageLocators.LOGIN_MAIN_PAGE).click()
-
-    WebDriverWait(driver, 3).until(EC.visibility_of_element_located(LoginPageLocators.LOGIN_TITLE))
-
-    driver.find_element(*LoginPageLocators.EMAIL_INPUT).send_keys("lukinarseniy001@yandex.ru")
-    driver.find_element(*LoginPageLocators.PASSWORD_INPUT).send_keys("123456")
-    driver.find_element(*LoginPageLocators.LOGIN_BUTTON).click()
+    main = MainPage(driver)
+    main.open("https://stellarburgers.nomoreparties.site/")
+    main.sign_in_login_page()
+    login = LoginPage(driver)
+    login.fill_email_password_and_login_button()
 
     return driver
